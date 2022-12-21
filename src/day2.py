@@ -50,12 +50,52 @@ for line in data:
     else:
         print("I threw: {}, and opponent threw: {}, so I lost. Points: {}".format(my_action, their_action, points))
 
+# a = rock, b = paper, c = scissor
+# 1         2          3
+
+f = '../data/day2.txt'
+
+data = read_file(f)
+
 points = 0
 for line in data:
     their_action = line.split(' ')[0].rstrip()
-    my_action = line.split(' ')[1].rstrip()
+    result = line.split(' ')[1].rstrip()
 
-    if my_action == 'X':
-        points = points + 1
+    if result == 'X':
+        print('Result is a loss')
+        if their_action == 'A':
+            print('Opponent threw threw rock, so I threw scissor to lose')
+            points = points + 3
+        elif their_action == 'B':
+            print('Opponent threw threw paper, so I threw rock to lose')
+            points = points + 1
+        elif their_action == 'C':
+            print('Opponent threw threw scissor, so I threw scissor to lose')
+            points = points + 2
+    elif result == 'Y':
+        print('Result is a draw')
+        points = points + 3
+        if their_action == 'A':
+            print('Opponent threw threw rock, so I threw rock to draw')
+            points = points + 1
+        elif their_action == 'B':
+            print('Opponent threw threw paper, so I threw paper to draw')
+            points = points + 2
+        elif their_action == 'C':
+            print('Opponent threw threw scissor, so I threw scissor to draw')
+            points = points + 3
+    elif result == 'Z':
+        print('Result is a win')
+        points = points + 6
+        if their_action == 'A':
+            print('Opponent threw threw rock, so I threw paper to win')
+            points = points + 2
+        elif their_action == 'B':
+            print('Opponent threw threw paper, so I threw scissor to win')
+            points = points + 3
+        elif their_action == 'C':
+            print('Opponent threw threw scissor, so I threw rock to win')
+            points = points + 1
 
 print("Total points: {}".format(points))
