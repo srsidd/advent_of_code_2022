@@ -18,7 +18,7 @@ def read_file(filename):
         lines = [line for line in file]
     return lines
 
-f = 'day1.txt'
+f = '../data/day1.txt'
 
 data = read_file(f)
 sum = [0, 0, 0]
