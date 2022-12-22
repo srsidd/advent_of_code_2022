@@ -43,3 +43,32 @@ for line in data:
         points = points + pts_to_add
 
 print("Total points: {}".format(points))
+
+# Challenge 2
+f = '../data/day3.txt'
+data = read_file(f)
+points = 0
+
+for i in range(0, len(data), 3):
+    elf1 = data[i].rstrip()
+    elf2 = data[i+1].rstrip()
+    elf3 = data[i+2].rstrip()
+    print('elf1: {}'.format(elf1.rstrip()))
+    print('elf2: {}'.format(elf2.rstrip()))
+    print('elf3: {}'.format(elf3.rstrip()))
+
+    elf12_common_letters = ''.join(set(elf1).intersection(elf2)).rstrip()
+    print('common_letters between elf1, and elf2: {}'.format(elf12_common_letters))
+    elf123_common_letters = ''.join(set(elf12_common_letters).intersection(elf3)).rstrip()
+    print('common_letters between elf1, elf2 and elf3: {}'.format(elf123_common_letters))
+
+    for common_letter in elf123_common_letters:
+        if common_letter.isupper():
+            pts_to_add = ord(common_letter) - 38
+        elif common_letter.lower():
+            pts_to_add = ord(common_letter) - 96
+
+        print('pts_to_add: {}\n'.format(pts_to_add))
+        points = points + pts_to_add
+
+print("Total points: {}".format(points))
