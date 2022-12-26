@@ -19,7 +19,6 @@ def read_file(filename):
     return lines
 
 f = '../data/day6.txt'
-
 data = read_file(f)
 
 for i in range(0, len(data[0])):
@@ -31,3 +30,13 @@ for i in range(0, len(data[0])):
         break
 
 # Challenge 2
+f = '../data/day6.txt'
+data = read_file(f)
+
+for i in range(0, len(data[0])):
+    sequence = data[0][i:i+14]
+    if len(set(sequence)) == 14:
+        print("Found first unique first 4 characters: {} at idx: {}".format(sequence, i+14))
+        break
+    if i > len(data[0]) - 14:
+        break
