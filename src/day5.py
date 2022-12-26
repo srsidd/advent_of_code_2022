@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-python script to solve challenge 4 of Advent of Code challenges
+python script to solve challenge 5 of Advent of Code challenges
 
     @copyright:
         Copyright (c) Sidd Srivatsa, Inc. 2022 All Rights Reserved
